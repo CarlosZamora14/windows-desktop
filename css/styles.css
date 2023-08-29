@@ -1,0 +1,46 @@
+:root {
+  --clr-cyan: #55AAAA;
+  --clr-gray: #C3C7CB;
+}
+
+html, body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: 'Levi Windows';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/Windows-Regular.ttf);
+}
+
+body {
+  font-family: 'Levi Windows', sans-serif;
+}
+
+.wallpaper {
+  background-color: var(--clr-cyan);
+}
+
+.taskbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--clr-gray);
+}
+
+.start-btn {
+  border: 1px solid white;
+  border-right-color:black;
+  border-bottom-color:black;
+}
+
+.start-btn .windows-logo {
+  height: 16px;
+  object-fit:cover;
+}
