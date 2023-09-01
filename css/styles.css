@@ -3,13 +3,16 @@
   --clr-gray: #C3C7CB;
 }
 
-html, body {
+html,
+body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -25,6 +28,7 @@ body {
 }
 
 .wallpaper {
+  position: relative;
   background-color: var(--clr-cyan);
 }
 
@@ -36,11 +40,40 @@ body {
 
 .start-btn {
   border: 1px solid white;
-  border-right-color:black;
-  border-bottom-color:black;
+  border-right-color: black;
+  border-bottom-color: black;
 }
 
 .start-btn .windows-logo {
   height: 16px;
-  object-fit:cover;
+  object-fit: cover;
+}
+
+.right-click-window {
+  position: absolute;
+  background-color: #C3C7CB;
+  border: 2px solid black;
+  border-left-color: white;
+  border-top-color: white;
+  font-size: 0.875rem;
+}
+
+.right-click-window ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.right-click-window ul+ul {
+  border-top: 1px solid white;
+}
+
+.right-click-window li {
+  padding: 0.25rem 1rem;
+}
+
+.right-click-window li:hover {
+  cursor: pointer;
+  background-color: #0000AA;
+  color: white;
 }
