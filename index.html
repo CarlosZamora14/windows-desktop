@@ -25,19 +25,50 @@
 </body>
 
 <template id="right-click-options">
-  <div class="right-click-window">
+  <div class="right-click-window contextmenu">
     <ul>
-      <li>Arrange Icons</li>
-      <li>Line up Icons</li>
+      <li class="arrow" data-name="arrange-icons">Arrange <span class="underline">I</span>cons</li>
+      <li>Lin<span class="underline">e</span> up Icons</li>
     </ul>
     <ul>
-      <li>Paste</li>
+      <li><span class="underline">P</span>aste</li>
     </ul>
     <ul>
-      <li>New</li>
+      <li class="arrow" data-name="new">Ne<span class="underline">w</span></li>
     </ul>
     <ul>
-      <li>Properties</li>
+      <li>P<span class="underline">r</span>operties</li>
+    </ul>
+  </div>
+</template>
+
+<template id="right-click-options-new">
+  <div class="right-click-window right-click-window-new subcontextmenu">
+    <ul>
+      <li><span class="underline">F</span>older</li>
+    </ul>
+    <ul>
+      <li>Text document</li>
+    </ul>
+  </div>
+</template>
+
+<template id="right-click-options-arrange">
+  <div class="right-click-window right-click-window-arrange subcontextmenu">
+    <ul>
+      <li>by <span class="underline">N</span>ame</li>
+    </ul>
+    <ul>
+      <li>by <span class="underline">T</span>ype</li>
+    </ul>
+    <ul>
+      <li>by Si<span class="underline">z</span>e</li>
+    </ul>
+    <ul>
+      <li>by <span class="underline">D</span>ate</li>
+    </ul>
+    <ul>
+      <li><span class="underline">A</span>uto Arrange</li>
     </ul>
   </div>
 </template>

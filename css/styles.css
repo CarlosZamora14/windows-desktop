@@ -58,22 +58,83 @@ body {
   font-size: 0.875rem;
 }
 
-.right-click-window ul {
+.right-click-window > ul {
+  position: relative;
   margin: 0;
   padding: 0;
+  padding-bottom: 2px;
   list-style-type: none;
 }
 
-.right-click-window ul+ul {
+.right-click-window > ul+ul {
   border-top: 1px solid white;
 }
 
-.right-click-window li {
-  padding: 0.25rem 1rem;
+.right-click-window > ul > li {
+  position: relative;
+  padding: 0.25rem 2rem 0.25rem 1rem;
 }
 
-.right-click-window li:hover {
+.right-click-window > ul > li span.underline {
+  position: relative;
+}
+
+.right-click-window > ul > li span.underline::before {
+  content: '';
+  position: absolute;
+  bottom: calc(0.25rem - 2px);
+  width: calc(100% + 2px);
+  left: -1px;
+  height: 1px;
+  background-color: black;
+}
+
+.right-click-window > ul > li.arrow::before {
+  content: '';
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  right: 0.75rem;
+  top: 50%;
+  background-image: conic-gradient(from 0.25turn at 0% 0%, black 45deg, transparent 45deg);
+  transform: translateY(-50%) rotateZ(45deg);
+}
+
+.right-click-window > ul > li.active,
+.right-click-window > ul > li:hover {
   cursor: pointer;
   background-color: #0000AA;
   color: white;
+}
+
+.right-click-window > ul > li:hover::before,
+.right-click-window > ul > li.active::before {
+  background-image: conic-gradient(from 0.25turn at 0% 0%, white 45deg, transparent 45deg);
+}
+
+.right-click-window > ul > li:hover span.underline::before,
+.right-click-window > ul > li.active span.underline::before {
+  background-color: white;
+}
+
+.subcontextmenu {
+  width: max-content;
+  position: absolute;
+  z-index: 1;
+}
+
+.subcontextmenu > ul > li {
+  color: black;
+}
+
+.subcontextmenu.right-click-window > ul > li > span.underline::before {
+  background-color: black;
+}
+
+.subcontextmenu > ul > li:hover {
+  color: white;
+}
+
+.subcontextmenu.right-click-window > ul > li:hover > span.underline::before {
+  background-color: white;
 }
