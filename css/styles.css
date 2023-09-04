@@ -157,6 +157,16 @@ body {
   width: 4.5rem;
 }
 
+.desktop-icon__container.active,
+.desktop-icon__container.focus {
+  border: 2px dotted #0000AA;
+}
+
+.desktop-icon__container.active .desktop-icon__name,
+.desktop-icon__container.focus .desktop-icon__name{
+  border: 2px dotted #0000AA;
+}
+
 .desktop-icon__img {
   width: 4rem;
   height: 4rem;
@@ -164,8 +174,8 @@ body {
 
 .desktop-icon__name {
   text-align: center;
-  padding: 0.125rem;
+  padding: 0.0625rem 0.125rem;
   width: 4rem;
-  margin: -0.625rem auto 0;
+  margin: -0.625rem auto 0.125rem;
   font-size: 0.875rem;
 }

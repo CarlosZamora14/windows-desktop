@@ -79,6 +79,15 @@ desktop.addEventListener('click', e => {
   }
 });
 
+document.addEventListener('click', e => {
+  console.log(e.target);
+}, true);
+
+document.body.addEventListener('click', () => {
+  const icons = document.querySelectorAll('.desktop-icon__container');
+  icons.forEach(elem => elem.classList.remove('active'));
+}, true);
+
 desktop.addEventListener('mouseover', e => {
   const grandparent = e.target?.parentElement?.parentElement;
   if (grandparent) {
@@ -116,6 +125,9 @@ function addDesktopIcon(imagePath, name, containerSelector) {
     const template = document.querySelector('#desktop-icon__template');
     const clone = template.content.cloneNode(true);
     const icon = clone.querySelector('.desktop-icon__container');
+    icon.addEventListener('click', e => {
+      e.currentTarget.classList.add('active');
+    });
     icon.querySelector('.desktop-icon__img').src = imagePath;
     icon.querySelector('.desktop-icon__name').innerText = name;
 
