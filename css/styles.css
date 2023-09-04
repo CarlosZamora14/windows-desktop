@@ -25,11 +25,20 @@ body {
 
 body {
   font-family: 'Levi Windows', sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; */
+  height: 100vh;
 }
 
 .wallpaper {
   position: relative;
   background-color: var(--clr-cyan);
+  display: grid;
+  flex-grow: 1;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(auto-fit, 5rem);
+  justify-content: flex-start;
 }
 
 .taskbar {
@@ -77,6 +86,7 @@ body {
 
 .right-click-window > ul > li span.underline {
   position: relative;
+  pointer-events: none;
 }
 
 .right-click-window > ul > li span.underline::before {
@@ -137,4 +147,25 @@ body {
 
 .subcontextmenu.right-click-window > ul > li:hover > span.underline::before {
   background-color: white;
+}
+
+.desktop-icon__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+}
+
+.desktop-icon__img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.desktop-icon__name {
+  text-align: center;
+  padding: 0.125rem;
+  width: 4rem;
+  margin: -0.625rem auto 0;
+  font-size: 0.875rem;
 }

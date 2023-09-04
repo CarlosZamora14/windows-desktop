@@ -47,7 +47,7 @@ function placeMenu(e, parentSelector, templateSelector, childSelector, nextToPar
   }
 }
 
-function popMenu(e) {
+function closeMenus() {
   const menu = document.querySelector('.contextmenu');
   const submenu = document.querySelector('.subcontextmenu');
   if (submenu) {
@@ -57,6 +57,10 @@ function popMenu(e) {
   if (menu) {
     menu.parentElement.removeChild(menu);
   }
+}
+
+function popMenu(e) {
+  closeMenus();
 
   placeMenu(e, '.wallpaper', '#right-click-options', '.right-click-window');
 }
@@ -66,7 +70,16 @@ desktop.addEventListener('contextmenu', (e) => {
   popMenu(e);
 });
 
-desktop.addEventListener('mouseover', (e) => {
+desktop.addEventListener('click', e => {
+  if (e.target.dataset['name'] === 'folder') {
+    addDesktopIcon('./assets/images/folder-img.png', 'New folder', '.wallpaper');
+    closeMenus();
+  } else if (e.target === desktop) {
+    closeMenus();
+  }
+});
+
+desktop.addEventListener('mouseover', e => {
   const grandparent = e.target?.parentElement?.parentElement;
   if (grandparent) {
     if (grandparent.classList.contains('contextmenu')) {
@@ -96,3 +109,16 @@ desktop.addEventListener('mouseover', (e) => {
     placeMenu(e, '.right-click-window', '#right-click-options-arrange', '.right-click-window-arrange', true, '.wallpaper');
   }
 });
+
+function addDesktopIcon(imagePath, name, containerSelector) {
+  if ('content' in document.createElement('template')) {
+    const container = document.querySelector(containerSelector);
+    const template = document.querySelector('#desktop-icon__template');
+    const clone = template.content.cloneNode(true);
+    const icon = clone.querySelector('.desktop-icon__container');
+    icon.querySelector('.desktop-icon__img').src = imagePath;
+    icon.querySelector('.desktop-icon__name').innerText = name;
+
+    container.appendChild(clone);
+  }
+}

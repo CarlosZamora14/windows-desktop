@@ -11,7 +11,6 @@
 
 <body>
   <main class="wallpaper">
-    <img src="./assets/images/folder-img.png" alt="Folder icon">
   </main>
   <footer class="taskbar">
     <div class="start-btn">
@@ -23,6 +22,13 @@
     </div>
   </footer>
 </body>
+
+<template id="desktop-icon__template">
+  <div class="desktop-icon__container">
+    <img class="desktop-icon__img" alt="">
+    <p class="desktop-icon__name"></p>
+  </div>
+</template>
 
 <template id="right-click-options">
   <div class="right-click-window contextmenu">
@@ -45,10 +51,10 @@
 <template id="right-click-options-new">
   <div class="right-click-window right-click-window-new subcontextmenu">
     <ul>
-      <li><span class="underline">F</span>older</li>
+      <li data-name="folder"><span class="underline">F</span>older</li>
     </ul>
     <ul>
-      <li>Text document</li>
+      <li data-name="text-document">Text document</li>
     </ul>
   </div>
 </template>
