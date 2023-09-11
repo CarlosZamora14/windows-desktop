@@ -39,6 +39,7 @@ body {
   grid-auto-flow: column;
   grid-template-rows: repeat(auto-fit, 5rem);
   justify-content: flex-start;
+  overflow-x: hidden;
 }
 
 .taskbar {
